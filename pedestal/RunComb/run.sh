@@ -1,0 +1,1 @@
+/home/caot/trek-e36/buildCooker/bin/cooker /home/caot/trek-e36/cooker/recipes/MWPC/fitMWPCPedestal.xml /home/caot/trek-e36/dataRaw/mergeRoot/pedestal/RunCombMS.root /home/caot/trek-e36/dataRaw/histos/MWPC/pedestal/histo_runComb.root

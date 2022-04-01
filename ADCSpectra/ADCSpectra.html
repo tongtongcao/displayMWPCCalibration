@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>ADCSpectra</title>
+<meta name="keywords" content="ADCSpectra" />
+<meta name="author" content="Tongtong Cao" />
+<meta http-equiv="content-type" content="text/html;UTF-8">
+<style type="text/css">
+table,th,td
+{
+border:1px solid black;
+border-collapse:collapse;
+}
+th,td
+{
+padding:5px 5px 5px 5px;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+<p><b>Navigator: &ensp;&ensp;</b>  <a href="../MWPC.html" style="background-clor:blue;">Main Page</a>
+</p>
+<hr/>
+
+<h2>ADC Readout: <a href="#C2XL">C2XL</a> <a href="#C2XR">C2XR</a> <a
+href="#C2YL">C2YL</a> <a href="#C2YR">C2YR</a>
+<a href="#C3XL">C3XL</a> <a href="#C3XR">C3XR</a> <a
+href="#C3YL">C3YL</a> <a href="#C3YR">C3YR</a>
+<a href="#C4XL">C4XL</a> <a href="#C4XR">C4XR</a> <a
+href="#C4YL">C4YL</a> <a href="#C4YR">C4YR</a>
+</h2>
+
+<h3><a name="C2XL">C2XL</a>: C2 X-direction Left (gap 7-12)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC2XL()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC2XL()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC2XL"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC2XLEvent">
+      Strip channel number: <input type="text" name="formC2XLEvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC2XLShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 55)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC2XLEvent" src="MwpcC2XL_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC2XLShow()
+      {
+      var x=document.forms["formC2XLEvent"]["formC2XLEvent_child"].value;
+      document.getElementById("imageC2XLEvent").src="MwpcC2XL_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC2XL=0;
+      var interC2XL;
+      function intervalC2XL()
+      {
+      interC2XL=setInterval(function(){showC2XL(loopC2XL)},500);
+      }
+      function stopIntervalC2XL()
+      {
+      clearInterval(interC2XL);
+      }
+      
+      function showC2XL(nC2XL)
+      {
+      loopC2XL++;
+      document.getElementById("imageC2XLEvent").src="MwpcC2XL_St"+nC2XL+".png";
+      document.getElementById("pC2XL").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC2XL+"</b>";
+      var numberC2XL=loopC2XL;
+      if(numberC2XL==56)
+      {
+      loopC2XL=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+
+<h3><a name="C2XR">C2XR</a>: C2 X-direction Right (gap 1-6)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC2XR()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC2XR()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC2XR"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC2XREvent">
+      Strip channel number: <input type="text" name="formC2XREvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC2XRShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 55)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC2XREvent" src="MwpcC2XR_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC2XRShow()
+      {
+      var x=document.forms["formC2XREvent"]["formC2XREvent_child"].value;
+      document.getElementById("imageC2XREvent").src="MwpcC2XR_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC2XR=0;
+      var interC2XR;
+      function intervalC2XR()
+      {
+      interC2XR=setInterval(function(){showC2XR(loopC2XR)},500);
+      }
+      function stopIntervalC2XR()
+      {
+      clearInterval(interC2XR);
+      }
+      
+      function showC2XR(nC2XR)
+      {
+      loopC2XR++;
+      document.getElementById("imageC2XREvent").src="MwpcC2XR_St"+nC2XR+".png";
+      document.getElementById("pC2XR").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC2XR+"</b>";
+      var numberC2XR=loopC2XR;
+      if(numberC2XR==56)
+      {
+      loopC2XR=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+<h3><a name="C2YL">C2YL</a>: C2 Y-direction Left (gap 7-12)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC2YL()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC2YL()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC2YL"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC2YLEvent">
+      Strip channel number: <input type="text" name="formC2YLEvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC2YLShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 15)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC2YLEvent" src="MwpcC2YL_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC2YLShow()
+      {
+      var x=document.forms["formC2YLEvent"]["formC2YLEvent_child"].value;
+      document.getElementById("imageC2YLEvent").src="MwpcC2YL_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC2YL=0;
+      var interC2YL;
+      function intervalC2YL()
+      {
+      interC2YL=setInterval(function(){showC2YL(loopC2YL)},500);
+      }
+      function stopIntervalC2YL()
+      {
+      clearInterval(interC2YL);
+      }
+      
+      function showC2YL(nC2YL)
+      {
+      loopC2YL++;
+      document.getElementById("imageC2YLEvent").src="MwpcC2YL_St"+nC2YL+".png";
+      document.getElementById("pC2YL").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC2YL+"</b>";
+      var numberC2YL=loopC2YL;
+      if(numberC2YL==16)
+      {
+      loopC2YL=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+
+<h3><a name="C2YR">C2YR</a>: C2 Y-direction Right (gap 1-6)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC2YR()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC2YR()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC2YR"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC2YREvent">
+      Strip channel number: <input type="text" name="formC2YREvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC2YRShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 15)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC2YREvent" src="MwpcC2YR_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC2YRShow()
+      {
+      var x=document.forms["formC2YREvent"]["formC2YREvent_child"].value;
+      document.getElementById("imageC2YREvent").src="MwpcC2YR_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC2YR=0;
+      var interC2YR;
+      function intervalC2YR()
+      {
+      interC2YR=setInterval(function(){showC2YR(loopC2YR)},500);
+      }
+      function stopIntervalC2YR()
+      {
+      clearInterval(interC2YR);
+      }
+      
+      function showC2YR(nC2YR)
+      {
+      loopC2YR++;
+      document.getElementById("imageC2YREvent").src="MwpcC2YR_St"+nC2YR+".png";
+      document.getElementById("pC2YR").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC2YR+"</b>";
+      var numberC2YR=loopC2YR;
+      if(numberC2YR==16)
+      {
+      loopC2YR=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+<h3><a name="C3XL">C3XL</a>: C3 X-direction Left (gap 7-12)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC3XL()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC3XL()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC3XL"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC3XLEvent">
+      Strip channel number: <input type="text" name="formC3XLEvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC3XLShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 63)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC3XLEvent" src="MwpcC3XL_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC3XLShow()
+      {
+      var x=document.forms["formC3XLEvent"]["formC3XLEvent_child"].value;
+      document.getElementById("imageC3XLEvent").src="MwpcC3XL_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC3XL=0;
+      var interC3XL;
+      function intervalC3XL()
+      {
+      interC3XL=setInterval(function(){showC3XL(loopC3XL)},500);
+      }
+      function stopIntervalC3XL()
+      {
+      clearInterval(interC3XL);
+      }
+      
+      function showC3XL(nC3XL)
+      {
+      loopC3XL++;
+      document.getElementById("imageC3XLEvent").src="MwpcC3XL_St"+nC3XL+".png";
+      document.getElementById("pC3XL").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC3XL+"</b>";
+      var numberC3XL=loopC3XL;
+      if(numberC3XL==64)
+      {
+      loopC3XL=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+
+<h3><a name="C3XR">C3XR</a>: C3 X-direction Right (gap 1-6)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC3XR()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC3XR()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC3XR"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC3XREvent">
+      Strip channel number: <input type="text" name="formC3XREvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC3XRShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 63)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC3XREvent" src="MwpcC3XR_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC3XRShow()
+      {
+      var x=document.forms["formC3XREvent"]["formC3XREvent_child"].value;
+      document.getElementById("imageC3XREvent").src="MwpcC3XR_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC3XR=0;
+      var interC3XR;
+      function intervalC3XR()
+      {
+      interC3XR=setInterval(function(){showC3XR(loopC3XR)},500);
+      }
+      function stopIntervalC3XR()
+      {
+      clearInterval(interC3XR);
+      }
+      
+      function showC3XR(nC3XR)
+      {
+      loopC3XR++;
+      document.getElementById("imageC3XREvent").src="MwpcC3XR_St"+nC3XR+".png";
+      document.getElementById("pC3XR").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC3XR+"</b>";
+      var numberC3XR=loopC3XR;
+      if(numberC3XR==64)
+      {
+      loopC3XR=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+<h3><a name="C3YL">C3YL</a>: C3 Y-direction Left (gap 7-12)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC3YL()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC3YL()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC3YL"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC3YLEvent">
+      Strip channel number: <input type="text" name="formC3YLEvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC3YLShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 15)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC3YLEvent" src="MwpcC3YL_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC3YLShow()
+      {
+      var x=document.forms["formC3YLEvent"]["formC3YLEvent_child"].value;
+      document.getElementById("imageC3YLEvent").src="MwpcC3YL_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC3YL=0;
+      var interC3YL;
+      function intervalC3YL()
+      {
+      interC3YL=setInterval(function(){showC3YL(loopC3YL)},500);
+      }
+      function stopIntervalC3YL()
+      {
+      clearInterval(interC3YL);
+      }
+      
+      function showC3YL(nC3YL)
+      {
+      loopC3YL++;
+      document.getElementById("imageC3YLEvent").src="MwpcC3YL_St"+nC3YL+".png";
+      document.getElementById("pC3YL").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC3YL+"</b>";
+      var numberC3YL=loopC3YL;
+      if(numberC3YL==16)
+      {
+      loopC3YL=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+
+<h3><a name="C3YR">C3YR</a>: C3 Y-direction Right (gap 1-6)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC3YR()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC3YR()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC3YR"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC3YREvent">
+      Strip channel number: <input type="text" name="formC3YREvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC3YRShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 15)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC3YREvent" src="MwpcC3YR_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC3YRShow()
+      {
+      var x=document.forms["formC3YREvent"]["formC3YREvent_child"].value;
+      document.getElementById("imageC3YREvent").src="MwpcC3YR_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC3YR=0;
+      var interC3YR;
+      function intervalC3YR()
+      {
+      interC3YR=setInterval(function(){showC3YR(loopC3YR)},500);
+      }
+      function stopIntervalC3YR()
+      {
+      clearInterval(interC3YR);
+      }
+      
+      function showC3YR(nC3YR)
+      {
+      loopC3YR++;
+      document.getElementById("imageC3YREvent").src="MwpcC3YR_St"+nC3YR+".png";
+      document.getElementById("pC3YR").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC3YR+"</b>";
+      var numberC3YR=loopC3YR;
+      if(numberC3YR==16)
+      {
+      loopC3YR=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+
+<h3><a name="C4XL">C4XL</a>: C4 X-direction Left (gap 7-12)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC4XL()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC4XL()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC4XL"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC4XLEvent">
+      Strip channel number: <input type="text" name="formC4XLEvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC4XLShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 71)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC4XLEvent" src="MwpcC4XL_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC4XLShow()
+      {
+      var x=document.forms["formC4XLEvent"]["formC4XLEvent_child"].value;
+      document.getElementById("imageC4XLEvent").src="MwpcC4XL_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC4XL=0;
+      var interC4XL;
+      function intervalC4XL()
+      {
+      interC4XL=setInterval(function(){showC4XL(loopC4XL)},500);
+      }
+      function stopIntervalC4XL()
+      {
+      clearInterval(interC4XL);
+      }
+      
+      function showC4XL(nC4XL)
+      {
+      loopC4XL++;
+      document.getElementById("imageC4XLEvent").src="MwpcC4XL_St"+nC4XL+".png";
+      document.getElementById("pC4XL").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC4XL+"</b>";
+      var numberC4XL=loopC4XL;
+      if(numberC4XL==72)
+      {
+      loopC4XL=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+
+<h3><a name="C4XR">C4XR</a>: C4 X-direction Right (gap 1-6)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC4XR()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC4XR()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC4XR"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC4XREvent">
+      Strip channel number: <input type="text" name="formC4XREvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC4XRShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 71)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC4XREvent" src="MwpcC4XR_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC4XRShow()
+      {
+      var x=document.forms["formC4XREvent"]["formC4XREvent_child"].value;
+      document.getElementById("imageC4XREvent").src="MwpcC4XR_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC4XR=0;
+      var interC4XR;
+      function intervalC4XR()
+      {
+      interC4XR=setInterval(function(){showC4XR(loopC4XR)},500);
+      }
+      function stopIntervalC4XR()
+      {
+      clearInterval(interC4XR);
+      }
+      
+      function showC4XR(nC4XR)
+      {
+      loopC4XR++;
+      document.getElementById("imageC4XREvent").src="MwpcC4XR_St"+nC4XR+".png";
+      document.getElementById("pC4XR").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC4XR+"</b>";
+      var numberC4XR=loopC4XR;
+      if(numberC4XR==72)
+      {
+      loopC4XR=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+<h3><a name="C4YL">C4YL</a>: C4 Y-direction Left (gap 7-12)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC4YL()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC4YL()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC4YL"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC4YLEvent">
+      Strip channel number: <input type="text" name="formC4YLEvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC4YLShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 15)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC4YLEvent" src="MwpcC4YL_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC4YLShow()
+      {
+      var x=document.forms["formC4YLEvent"]["formC4YLEvent_child"].value;
+      document.getElementById("imageC4YLEvent").src="MwpcC4YL_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC4YL=0;
+      var interC4YL;
+      function intervalC4YL()
+      {
+      interC4YL=setInterval(function(){showC4YL(loopC4YL)},500);
+      }
+      function stopIntervalC4YL()
+      {
+      clearInterval(interC4YL);
+      }
+      
+      function showC4YL(nC4YL)
+      {
+      loopC4YL++;
+      document.getElementById("imageC4YLEvent").src="MwpcC4YL_St"+nC4YL+".png";
+      document.getElementById("pC4YL").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC4YL+"</b>";
+      var numberC4YL=loopC4YL;
+      if(numberC4YL==16)
+      {
+      loopC4YL=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+
+<h3><a name="C4YR">C4YR</a>: C4 Y-direction Right (gap 1-6)</h3>
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: ADC Readout for each strip</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="intervalC4YR()" style="background-color:yellow;">Start</button>
+      <button onclick="stopIntervalC4YR()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="pC4YR"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input strip channel number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formC4YREvent">
+      Strip channel number: <input type="text" name="formC4YREvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventC4YRShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 15)
+      </form>
+      </div>
+      <br/>
+      <image id="imageC4YREvent" src="MwpcC4YR_St0.png"
+      alt="Image is not exit." width="500px" height="300px" />
+      <br/><br/>
+      <script>
+      function eventC4YRShow()
+      {
+      var x=document.forms["formC4YREvent"]["formC4YREvent_child"].value;
+      document.getElementById("imageC4YREvent").src="MwpcC4YR_St"+x+".png";
+      }    
+      </script>
+      <script>
+      var loopC4YR=0;
+      var interC4YR;
+      function intervalC4YR()
+      {
+      interC4YR=setInterval(function(){showC4YR(loopC4YR)},500);
+      }
+      function stopIntervalC4YR()
+      {
+      clearInterval(interC4YR);
+      }
+      
+      function showC4YR(nC4YR)
+      {
+      loopC4YR++;
+      document.getElementById("imageC4YREvent").src="MwpcC4YR_St"+nC4YR+".png";
+      document.getElementById("pC4YR").innerHTML="ADC channel Number:\n"+'<b style="color:red;">'+nC4YR+"</b>";
+      var numberC4YR=loopC4YR;
+      if(numberC4YR==16)
+      {
+      loopC4YR=0;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+
+</body>
+</html>

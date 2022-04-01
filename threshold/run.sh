@@ -1,0 +1,1 @@
+/home/caot/trek-e36/buildCooker/bin/cooker /home/caot/trek-e36/cooker/recipes/MWPC/getMWPCThrshold.xml /home/caot/trek-e36/dataRaw/rootRaw/run03994.root /home/caot/trek-e36/dataRaw/histos/MWPC/threshold/run3994.root

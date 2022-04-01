@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Event</title>
+<meta name="keywords" content="Event" />
+<meta name="author" content="Tongtong Cao" />
+<meta http-equiv="content-type" content="text/html;UTF-8">
+<style type="text/css">
+table,th,td
+{
+border:1px solid black;
+border-collapse:collapse;
+}
+th,td
+{
+padding:5px 5px 5px 5px;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+<p><b>Navigator: &ensp;&ensp;</b>  <a href="../MWPC.html" style="background-clor:blue;">Main Page</a>
+</p>
+<hr/>
+
+<h2>Strip output distribution event by event:
+</h2>
+
+<table>
+  <tr>
+    <td>
+      <h4>Show the plot: Strip output distribution event by event</h4>
+      <div style="float:left;margin-left:100px;">
+      <p>Click the following button to show plots cyclically.</p>
+      <button onclick="interval()" style="background-color:yellow;">Start</button>
+      <button onclick="stopInterval()" style="background-color:yellow;">Stop</button>
+	</br>(<strong style="color:red;">Attention:</strong> Don't
+	click Start button twice or more. <br/>
+	You can click Stop button
+	firstly, then click Start button to continue.)
+	<br/>
+      <p id="p"></p>
+      </div>
+      <div style="float:right;margin-right:100px;">
+      <p>Please input event number:</p>
+      <strong style="color:red;">Attention:</strong>  Stop cycle firstly by clicking Stop button
+      <form name="formEvent">
+      Event number: <input type="text" name="formEvent_child">
+      &ensp;&ensp;<button type="button" onclick="eventShow()" style="background-color:yellow">Submit</button>
+      <br/>
+      (Number: from 0 to 199)
+      </form>
+      </div>
+      <br/>
+      <image id="imageEvent" src="MwpcEvent0.png"
+      alt="Image is not exit." width="1000px" height="500px" />
+      <br/><br/>
+      <script>
+      function eventShow()
+      {
+      var x=document.forms["formEvent"]["formEvent_child"].value;
+      document.getElementById("imageEvent").src="MwpcEvent"+x+".png";
+      }    
+      </script>
+      <script>
+      var loop=0;
+      var inter;
+      function interval()
+      {
+      inter=setInterval(function(){show(loop)},500);
+      }
+      function stopInterval()
+      {
+      clearInterval(inter);
+      }
+      
+      function show(n)
+      {
+      loop++;
+      document.getElementById("imageEvent").src="MwpcEvent"+n+".png";
+      document.getElementById("p").innerHTML="Event number:\n"+'<b style="color:red;">'+n+"</b>";
+      var number=loop;
+      if(number==1200)
+      {
+      loop=201;
+      }
+      }
+      </script>
+    </td>
+
+  </tr>
+</table>
+<br/><br/>
+
+</body>
+</html>
